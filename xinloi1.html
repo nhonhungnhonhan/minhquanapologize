@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title> MQ's apologize</title>
+       <link rel="stylesheet" href="apologize.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+VN+Guides&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    </head>
+    <body> 
+        <!--margin = space AROUND an element-->
+        <div id="box 1"> 
+           <form id="myForm">
+  <p>Chắc chắn tha thứ cho Minh Quân chứ??</p>
+
+  <label>
+    <input type="radio" name="answer" value="A"> Có, chắc chắn
+  </label><br>
+
+  <label>
+    <input type="radio" name="answer" value="B"> Không chắc lắm....
+  </label><br>
+
+
+
+  <button type="submit">Chọn</button>
+
+  <p id="message" style="color: red; font-weight: bold;"></p>
+</form>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function (event) {
+    const message = document.getElementById("message");
+    const radios = document.getElementsByName("answer");
+    let selectedValue = null;
+
+  
+    for (let r of radios) {
+      if (r.checked) {
+        selectedValue = r.value;
+        break;
+      }
+    }
+
+ 
+    if (!selectedValue) {
+      event.preventDefault();
+      message.textContent = "Quá giận quên chọn luôn rồi";
+      return;
+    }
+
+    
+    if (selectedValue !== "A") {
+      event.preventDefault();
+      message.textContent = "Hông, ai cho không chắc";
+      return;
+    }
+
+   
+    event.preventDefault();  
+    window.location.href = "xinloi3.html"; 
+  });
+</script>
